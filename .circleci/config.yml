@@ -41,8 +41,8 @@ jobs:
            github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME};
            mkdir bin;
            cp "$GOPATH_HEAD/bin/${CIRCLE_PROJECT_REPONAME}" bin/invoicer;
-           docker build -t snipermaker/invoicer .;
+           docker build -t snipermaker/invoicer-chapter2 .;
            docker images --no-trunc | awk '/^app/ {print $3}' | \
              sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt;
-           docker push snipermaker/invoicer;
+           docker push snipermaker/invoicer-chapter2;
          fi
